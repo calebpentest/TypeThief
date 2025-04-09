@@ -27,7 +27,7 @@ def send_email(zip_path, retries=3, delay=10):
                 part.add_header('Content-Disposition', f"attachment; filename={os.path.basename(zip_path)}")
                 msg.attach(part)
 
-            with smtplib.SMTP('smtp.gmail.com', 587, timeout=30) as server:
+            with smtplib.SMTP('smtp.gmail.com', 465, timeout=30) as server:
                 server.starttls()
                 server.login(sender_email, sender_password)
                 server.sendmail(sender_email, receiver_email, msg.as_string())
