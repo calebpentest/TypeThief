@@ -104,7 +104,7 @@ TypeThief/
   Modify `sendmail.py` with your SMTP credentials:
   ```python
   SMTP_SERVER = "smtp.example.com"
-  SMTP_PORT = 587 or 535
+  SMTP_PORT = 587 or 465
   EMAIL_ADDRESS = "your_email@example.com"
   EMAIL_PASSWORD = "your_password"
   ```
